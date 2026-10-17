@@ -57,8 +57,8 @@ export default function Home() {
         showToast(`✓ Added "${job.title} at ${job.company}" to your pipeline!`);
         fetchApplications();
       }
-    } catch (e: any) {
-      showToast(`Failed to add: ${e.message}`);
+    } catch (e) {
+      showToast(`Failed to add: ${e instanceof Error ? e.message : 'Unknown error'}`);
     }
   };
 
@@ -74,8 +74,8 @@ export default function Home() {
         showToast(`✓ Tracked application for ${newApp.company}!`);
         fetchApplications();
       }
-    } catch (e: any) {
-      showToast(`Failed: ${e.message}`);
+    } catch (e) {
+      showToast(`Failed: ${e instanceof Error ? e.message : 'Unknown error'}`);
     }
   };
 
